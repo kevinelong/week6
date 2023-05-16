@@ -1,0 +1,58 @@
+<style>
+body{
+    background-color: #666666;
+}
+button{
+    color: #dddddd;
+    background-color: #333333;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    padding: 1rem;
+}
+
+#time{
+    position: absolute;
+    top: 30%;
+    left: 30%;
+    color: white;
+    font-size: 4rem;
+}
+</style>
+<body>
+    <div id="time">00:00:00</div>
+</body>
+<script>
+
+    const output = document.getElementById("time");
+
+    function button(text){
+        const button = document.createElement("button");
+        button.innerHTML = text
+        button.addEventListener("click", e =>{
+            seconds = Number(e.target.innerHTML) * 60 //MINUTES
+            step = 1;
+        });
+        return button
+    }
+
+    STEP = 5
+    LIMIT = 60
+    for(let time = STEP; time <= LIMIT; time += STEP){
+        //document.body.innerHTML += time + "<br>"
+        document.body.appendChild( button(time) )
+    }
+
+    let seconds = 0;
+    let step = 0;
+
+    function updateTime(){
+        seconds -= step;
+        minutes = Math.floor(seconds / 60)
+        remainder = seconds % 60; //modulus to get remainder
+        output.innerHTML = `${minutes}:${remainder}`;    
+        setTimeout(updateTime, 1000); // 1000 milliseconds == 1 second
+    }
+    updateTime();
+
+    
+</script>
