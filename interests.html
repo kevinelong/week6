@@ -1,0 +1,49 @@
+<style>
+    td{
+        padding: 1rem;
+        border: 1px solid black;;
+    }
+</style>
+<script src="interests.js"></script>
+<body></body>
+<script>
+
+function print(string){
+    document.body.innerHTML += string + "<br>";
+}
+
+function table(){
+    return document.createElement("table");
+}
+function tr(){
+    return document.createElement("tr");
+}
+function td(text){
+    const td = document.createElement("td");
+    td.innerHTML = text
+    return td;
+}
+function favorites(favorites){
+    list = []
+    favorites.forEach(detail=>{
+        for(property in detail){
+            list.push(`${ property }: ${ detail[property] }`);
+        }
+    });
+    return list.join(",<br>") //opposit of split() , glues together
+}
+t = table()
+for(person in interests){ //key
+    interest = interests[person] //get object from outer object
+    r = tr()
+        r.appendChild(td(person)) // e.g. Pierre
+        r.appendChild(td(interest.name)) // e.g. Basketball
+        r.appendChild(td(favorites(interest.favorites))) // e.g. k=v,k=v
+    t.appendChild(r);
+}
+document.body.appendChild(t);
+
+console.log(interests["ollecia"]["name"])
+console.log(interests["ollecia"]["favorites"][0]["use"])
+
+</script>
