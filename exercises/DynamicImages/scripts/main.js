@@ -1,12 +1,20 @@
 // window.onload = ()=>{
+function showImage(path){
+    const dialogImage = document.querySelector(".dialog .gigantic")
+    dialogImage.src = path;
+}
+
 document.addEventListener("DOMContentLoaded", ()=>{
     
+
     const tbody = document.querySelector("#list tbody")
 
     const year = document.getElementById("year")
     const image_list = document.getElementById("image_list")
     const output = document.getElementById("output")
     const clear = document.getElementById("clear")
+
+
 
     image_list.innerHTML = "<option>Make a selection</option>"
 
@@ -26,8 +34,15 @@ document.addEventListener("DOMContentLoaded", ()=>{
         let cellTitle = row.insertCell(1);
         cellTitle.innerHTML = image.title;
         
+        let fullPath = "images/" + image.name;
+
         let cellThumb = row.insertCell(2);
-        cellThumb.innerHTML = image.name;
+        cellThumb.innerHTML = `<img src="${ fullPath }" class="thumb" onclick="showImage('${ fullPath }')">`;
+        // cellThumb.innerHTML = `
+        // <a href="${ fullPath }" target="_blank">
+        //     <img src="${ fullPath }" class="thumb">
+        // </a>
+        // `;
     }
 
     year.addEventListener("change", ()=>{
