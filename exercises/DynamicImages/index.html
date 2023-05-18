@@ -1,0 +1,50 @@
+<style>
+    body { background: #333333; color: silver; font-family: sans-serif;}
+</style>
+<body>
+    <select id="image_list"></select>
+    <button id="clear">Clear</button>
+    <div id="output">Results will be here.</div>
+</body>
+<script>
+
+const images = [
+    {name:"BC2_Poster.jpg", title:"Book Club - The Next Chapter"},                        
+    {name:"FND_poster_Spider-ManATSV-Presale.jpg", title:"Spider Man"},   
+    {name:"GuardiansVol3-2023.jpg", title: "Guardians Volume 3"},
+    {name:"FND_Elemental_presale_poster.jpg", title: "Elemental"},      
+    {name:"FND_poster_TranformersROTB-Presale.jpg", title: "Transformers"},  
+    {name:"FND_poster_LittleMermaid_PreSale.jpg", title: "Little Mermaid"},  
+    {name:"FSTX_Montage1Sheet2_RGB_1.jpg", title: "Fast and the Furious: X"},           
+    {name:"SMB_2023.jpg", title:"Super Mario Bros"}
+];
+
+image_list.innerHTML = "<option>Make a selection</option>"
+
+images.forEach(image=>{
+    let option = document.createElement("option");
+    option.innerHTML = image.title;
+    option.value = image.name;
+    image_list.appendChild(option);
+}); // end images for each
+
+image_list.addEventListener("change", ()=>{
+    
+    //IS FIRST ITEM "make a selection" e.g. 0, or no items e.g. -1
+    if(image_list.selectedIndex <= 0){ 
+        return; // DO NOTHING
+    }
+    
+    let name = image_list.selectedOptions[0].value;
+    // alert(name);
+    let img = document.createElement("img");
+    img.src = "images/" + name;
+    output.appendChild(img);
+});  // end on change image list
+
+clear.addEventListener("click", ()=>{
+    output.innerHTML = "";
+    image_list.selectedIndex = 0; // set select to first item, -1 for blank
+}); // end clear button click
+
+</script>
