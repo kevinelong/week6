@@ -1,5 +1,20 @@
 body { 
-    background: #333333; 
+    background: #999999; 
     color: silver; 
     font-family: sans-serif;
+}
+
+#list{
+    background-color: white;
+    color: black;
+    width: 100%;
+}
+
+#list th{
+    color: white;
+    background-color: black;
+}
+
+select, table, button, img {
+    margin: 1rem
 }
