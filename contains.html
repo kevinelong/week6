@@ -9,22 +9,46 @@
         { name: "nina", desc:"medium dark"},
         { name: "koshka", desc:"medium light"},
     ]
+
     phraseList = [
         "Tall",
         "Dark",
         "Medium",
         "Light"
     ]
+
     phraseList.forEach(p => {
-        phrases.innerHTML += `<option value="${p}">${p}</option>`
+        let option = document.createElement("option")
+        option.innerHTML = p;
+        option.value = p
+        phrases.appendChild(option);
+        // phrases.innerHTML += `<option value="${p}">${p}</option>`
     });
+
+    function contains(needle, haystack){
+        const NOT_FOUND = -1
+        let doesContain = true
+ 
+        needle = needle.toLowerCase()
+        haystack = haystack.toLowerCase()
+ 
+        index = haystack.indexOf(needle)
+ 
+        if(index == NOT_FOUND){
+            doesContain = false;
+        }
+ 
+        return doesContain        
+    }
+
     phrases.addEventListener("change", ()=>{
         selected = phrases.selectedOptions[0].value;
         output.innerHTML =""
         data.forEach(d=>{
-            if(d.desc.toLowerCase().indexOf(selected.toLowerCase()) != -1){ //CONTAINS same as < 0
+            // if(d.desc.toLowerCase().indexOf(selected.toLowerCase()) != -1){ //CONTAINS same as < 0
+            if(contains(selected, d.desc)){
                 output.innerHTML += d.name + " " + d.desc + "<br>" 
             }
-        })
-    })
+        });// end for each
+    }); // end change
 </script>
