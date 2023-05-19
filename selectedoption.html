@@ -1,0 +1,15 @@
+<body>
+    <select id="fruit">
+        <option value="">Select a fruit</option>
+        <option value="a">Apple</option>
+        <option value="b">Banana</option>
+        <option value="c">Cherry</option>
+    </select>
+    <div id="output"></div>
+</body>
+<script>
+    fruit.addEventListener("change", ()=>{
+        output.innerHTML = "<br>" + fruit.selectedOptions[0].value
+        output.innerHTML += "<br>" + fruit.options[ fruit.selectedIndex ].value
+    });//end fruit changed
+</script>
