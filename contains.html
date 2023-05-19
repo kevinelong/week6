@@ -1,0 +1,30 @@
+<body>
+    <select id="phrases"><option>Select a phrase</option></select>
+    <div id="output"></div>
+</body>
+<script>
+    // let phrases = document.getElementById("phrases")
+    data = [
+        { name: "kevin", desc:"tall dark"},
+        { name: "nina", desc:"medium dark"},
+        { name: "koshka", desc:"medium light"},
+    ]
+    phraseList = [
+        "Tall",
+        "Dark",
+        "Medium",
+        "Light"
+    ]
+    phraseList.forEach(p => {
+        phrases.innerHTML += `<option value="${p}">${p}</option>`
+    });
+    phrases.addEventListener("change", ()=>{
+        selected = phrases.selectedOptions[0].value;
+        output.innerHTML =""
+        data.forEach(d=>{
+            if(d.desc.toLowerCase().indexOf(selected.toLowerCase()) != -1){ //CONTAINS same as < 0
+                output.innerHTML += d.name + " " + d.desc + "<br>" 
+            }
+        })
+    })
+</script>
