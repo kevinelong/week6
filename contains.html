@@ -47,7 +47,7 @@
         data.forEach(d=>{
             // if(d.desc.toLowerCase().indexOf(selected.toLowerCase()) != -1){ //CONTAINS same as < 0
             if(contains(selected, d.desc)){
-                output.innerHTML += d.name + " " + d.desc + "<br>" 
+                output.innerHTML += `${d.name} ${d.desc}<br>`
             }
         });// end for each
     }); // end change
