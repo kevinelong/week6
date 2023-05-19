@@ -2,6 +2,8 @@
 function showImage(path){
     const dialogImage = document.querySelector(".dialog .gigantic")
     dialogImage.src = path;
+
+    document.querySelector(".dialog").classList.remove("hidden");
 }
 
 document.addEventListener("DOMContentLoaded", ()=>{
@@ -37,7 +39,9 @@ document.addEventListener("DOMContentLoaded", ()=>{
         let fullPath = "images/" + image.name;
 
         let cellThumb = row.insertCell(2);
-        cellThumb.innerHTML = `<img src="${ fullPath }" class="thumb" onclick="showImage('${ fullPath }')">`;
+        cellThumb.innerHTML = `<img src="${ fullPath }" 
+        class="thumb" 
+        onclick="showImage('${ fullPath }')">`;
         // cellThumb.innerHTML = `
         // <a href="${ fullPath }" target="_blank">
         //     <img src="${ fullPath }" class="thumb">

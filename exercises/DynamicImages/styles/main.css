@@ -27,7 +27,25 @@ select, table, button, img {
 }
 
 .gigantic{
-    width: 100vw;
-    height: 100vh;
-    object-fit: cover;
+    width: 75vw;
+    height: 75vh;
+    object-fit: contain;
+}
+
+.dialog{
+    width: 98vw;
+    height: 98vh;
+    border: 1px solid black;
+    position: fixed;
+    top: 1vh;
+    left: 1vw;
+    background-color: #000000ee;
+    box-shadow: 1vw 1vh 3vh 3vw #00000088;
+}
+.dialog.hidden{
+    display: none;
+}
+.title{
+    background-color: black;
+    text-align: center;
 }

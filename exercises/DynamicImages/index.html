@@ -31,8 +31,12 @@
     <button id="clear">Clear</button>
     <div id="output"></div>
 
-    <div class="dialog">
-        <div class="title">Show Image <button class="close">X</button></div>
+    <div class="dialog hidden" 
+onclick="document.querySelector('.dialog').classList.add('hidden');">
+        <div class="title">
+            Show Image 
+            <button class="close" >X</button>
+        </div>
         <img class="gigantic" src="">
     </div>
     
